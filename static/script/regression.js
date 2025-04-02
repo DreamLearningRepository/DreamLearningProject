@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             createParameters(2, parametersColection, datalistOptions);
         }
-        else if (selectedOption === "RANDOM FOREST") {
+        else if (selectedOption === "Random Forest") {
             console.log("chegou");
             parametersColection = {
                 n_estimators: "number",
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             createParameters(5, parametersColection, datalistOptions);
         }
-        else if (selectedOption === "LIGHT GBM") {
+        else if (selectedOption === "LIGHTGBM") {
             console.log("chegou");
             parametersColection = {
                 num_leaves: "number",
