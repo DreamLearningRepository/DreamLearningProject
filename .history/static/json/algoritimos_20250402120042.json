@@ -1,0 +1,50 @@
+{
+  "Naive Bayes": {
+    "explicacao": "Classificação baseada no teorema de Bayes, assumindo independência entre as características. Ideal para problemas de texto, como classificação de e-mails.",
+    "link": "https://www.youtube.com/watch?v=XXXXX"
+  },
+  "SVM": {
+    "explicacao": "Algoritmo que encontra o melhor hiperplano para separar classes, maximizando a margem entre elas.",
+    "link": "https://www.youtube.com/watch?v=YYYYY"
+  },
+  "LOGISTICS REGRESSION": {
+    "explicacao": "A regressão logistica preve a probabilidade de uma variável binária, ao contrário da regressão linear, que prevê valores contínuos.",
+    "link": "https://www.youtube.com/watch?v=ZZZZZ"
+  },
+  "Regressão Linear Simples": {
+    "explicacao": "Prediz um valor contínuo com base em uma única variável independente, modelando uma relação linear.",
+    "link": "https://www.youtube.com/watch?v=AAAAA"
+  },
+  "Regressão Linear Múltipla": {
+    "explicacao": "A regressão polinomial expansão da regressão simples, usando várias variáveis independentes para prever um valor contínuo.",
+    "link": "https://www.youtube.com/watch?v=BBBBB"
+  },
+  "Regressão Polinomial": {
+    "explicacao": "A regressão polinomial utiliza um polinômio para modelar relações não lineares entre variáveis.",
+    "link": "https://www.youtube.com/watch?v=CCCCC"
+  },
+  "KNN": {
+    "explicacao": "O KNN realiza a classificação baseado nos 'K' vizinhos mais próximos de um ponto de dados, atribuindo a classe mais frequente.",
+    "link": "https://www.youtube.com/watch?v=DDDDD"
+  },
+  "DECISION TREE": {
+    "explicacao": "A Árvore de Decisão é um modelo que utiliza uma árvore para classificação ou regressão, com decisões baseadas em perguntas nos nós internos.",
+    "link": "https://www.youtube.com/watch?v=EEEEE"
+  },
+  "XGBOOST": {
+    "explicacao": "O XGBOOST é um algoritmo de Gradient Boosting muito eficiente, com árvores de decisão sequenciais, eficaz para classificação e regressão.",
+    "link": "https://www.youtube.com/watch?v=FFFFF"
+  },
+  "LIGHTGBM": {
+    "explicacao": "O LIGHTGBM implementação eficiente de Gradient Boosting, ótima para grandes conjuntos de dados, com foco em velocidade e uso de memória.",
+    "link": "https://www.youtube.com/watch?v=GGGGG"
+  },
+  "CATBOOST": {
+    "explicacao": "O CatBoost é um algoritmo de Gradient Boosting otimizado para dados categóricos, com excelente desempenho e pré-processamento automático.",
+    "link": "https://www.youtube.com/watch?v=HHHHH"
+  },
+  "Random Forest": {
+    "explicacao": "O Random Forest é um conjunto de árvores de decisão, combinando suas previsões para melhorar a precisão e reduzir overfitting.",
+    "link": "https://www.youtube.com/watch?v=XXXXXXX"
+  }
+}

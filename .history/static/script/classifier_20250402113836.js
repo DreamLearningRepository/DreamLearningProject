@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 createParameters(4, parametersColection, datalistOptions);
                 
-                
+                generateinfobox(textClassifier)
 
             }
 
@@ -254,28 +254,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 createParameters(6, parametersColection, datalistOptions);
             }
-            generateinfobox(textClassifier)
         });
 
     async function generateinfobox(name_algorithm){
         const infoBox = document.getElementById("info-box");
         try {
             
-            const resposta = await fetch('../static/json/algoritimos.json');
-            const algoritmos = await resposta.json();
-            const algoritmoEscolhido = name_algorithm;
-            console.log(algoritmos[algoritmoEscolhido])
+            const resposta = await fetch('algoritmos.json');
             
-
+            // Converte o conteúdo do JSON para um objeto JavaScript
+            const algoritmos = await resposta.json();
+            
+            
+            const algoritmoEscolhido = "KNN";
             const explicacao = algoritmos[algoritmoEscolhido].explicacao;
             const videoLink = algoritmos[algoritmoEscolhido].link;
+            console.log(`Explicação sobre ${algoritmoEscolhido}: ${explicacao}`);
+            console.log(`Assista à videoaula: ${videoLink}`);
 
             infoBox.style.display = "block";
             infoBox.innerHTML = `
-                <p>O ${explicacao}</p>
-                <a href="${videoLink}" target="_blank">Caso ainda tenha dúvidas, clique aqui para assistir à videoaula sobre ${name_algorithm}!</a>
+                <p>O ${name_algorithm} (K-Nearest Neighbors) é um algoritmo de aprendizado supervisionado que classifica dados com base na proximidade de dados já rotulados.</p>
+                <a href="https://www.youtube.com/watch?v=XXXXX" target="_blank">Caso ainda tenha dúvidas, clique aqui para assistir à videoaula sobre ${name_algorithm}!</a>
             `;
-
         } catch (erro) {
             console.error("Erro ao carregar o arquivo JSON:", erro);
         }

@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 createParameters(4, parametersColection, datalistOptions);
                 
-                
+                generateinfobox(textClassifier)
 
             }
 
@@ -254,33 +254,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 createParameters(6, parametersColection, datalistOptions);
             }
-            generateinfobox(textClassifier)
         });
 
-    async function generateinfobox(name_algorithm){
-        const infoBox = document.getElementById("info-box");
+    function generateinfobox(name_algorithm){
         try {
             
-            const resposta = await fetch('../static/json/algoritimos.json');
-            const algoritmos = await resposta.json();
-            const algoritmoEscolhido = name_algorithm;
-            console.log(algoritmos[algoritmoEscolhido])
+            const resposta = async fetch('algoritmos.json');
             
-
+            // Converte o conteúdo do JSON para um objeto JavaScript
+            const algoritmos = await resposta.json();
+            
+            // Exemplo: Acessando a explicação e o link para o algoritmo "KNN"
+            const algoritmoEscolhido = "KNN";
             const explicacao = algoritmos[algoritmoEscolhido].explicacao;
             const videoLink = algoritmos[algoritmoEscolhido].link;
-
-            infoBox.style.display = "block";
-            infoBox.innerHTML = `
-                <p>O ${explicacao}</p>
-                <a href="${videoLink}" target="_blank">Caso ainda tenha dúvidas, clique aqui para assistir à videoaula sobre ${name_algorithm}!</a>
-            `;
-
+            
+            // Exibindo no console
+            console.log(`Explicação sobre ${algoritmoEscolhido}: ${explicacao}`);
+            console.log(`Assista à videoaula: ${videoLink}`);
         } catch (erro) {
             console.error("Erro ao carregar o arquivo JSON:", erro);
         }
-        
-        
+        const infoBox = document.getElementById("info-box");
+        infoBox.style.display = "block";
+        infoBox.innerHTML = `
+            <p>O ${name_algorithm} (K-Nearest Neighbors) é um algoritmo de aprendizado supervisionado que classifica dados com base na proximidade de dados já rotulados.</p>
+            <a href="https://www.youtube.com/watch?v=XXXXX" target="_blank">Caso ainda tenha dúvidas, clique aqui para assistir à videoaula sobre ${name_algorithm}!</a>
+        `;
     }    
 
     function createParameters(size, parametersColection, datalistOptions) {

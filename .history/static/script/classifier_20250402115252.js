@@ -254,7 +254,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 createParameters(6, parametersColection, datalistOptions);
             }
-            generateinfobox(textClassifier)
         });
 
     async function generateinfobox(name_algorithm){

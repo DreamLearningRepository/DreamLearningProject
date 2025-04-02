@@ -21,6 +21,52 @@ let values = Object.keys(valCheckBox);
 
 
 
+const algoritmos = {
+    "Naive Bayes": {
+        explicacao: "O Naive Bayes é um algoritmo de aprendizado supervisionado baseado no teorema de Bayes, que é usado principalmente para classificação. Ele assume que as características do conjunto de dados são independentes entre si, o que simplifica o modelo, tornando-o rápido e eficaz, especialmente em problemas de texto, como a classificação de e-mails.",
+        link: "https://www.youtube.com/watch?v=XXXXX"  // Substitua pelo link correto
+    },
+    "SVM": {
+        explicacao: "O SVM (Support Vector Machine) é um poderoso algoritmo de aprendizado supervisionado utilizado principalmente para classificação e regressão. Ele busca encontrar o melhor hiperplano que separa as diferentes classes, maximizando a margem entre as classes.",
+        link: "https://www.youtube.com/watch?v=YYYYY"  // Substitua pelo link correto
+    },
+    "Regressão Logística": {
+        explicacao: "A Regressão Logística é um modelo estatístico usado para prever a probabilidade de uma variável dependente binária (com duas classes). Ao contrário da regressão linear, que prevê valores contínuos, a regressão logística estima a probabilidade de um evento ocorrer.",
+        link: "https://www.youtube.com/watch?v=ZZZZZ"  // Substitua pelo link correto
+    },
+    "Regressão Simples": {
+        explicacao: "A Regressão Simples é um modelo de aprendizado supervisionado utilizado para prever um valor contínuo com base em uma única variável independente. Ele tenta modelar a relação entre a variável dependente e a variável independente utilizando uma linha reta (linha de tendência).",
+        link: "https://www.youtube.com/watch?v=AAAAA"  // Substitua pelo link correto
+    },
+    "Regressão Múltipla": {
+        explicacao: "A Regressão Múltipla é uma extensão da regressão simples que usa várias variáveis independentes para prever um valor contínuo. O modelo ajusta uma equação linear para minimizar o erro entre as previsões e os valores reais.",
+        link: "https://www.youtube.com/watch?v=BBBBB"  // Substitua pelo link correto
+    },
+    "Regressão Polinomial": {
+        explicacao: "A Regressão Polinomial é uma forma de regressão que utiliza um polinômio em vez de uma linha reta para modelar a relação entre a variável dependente e as variáveis independentes. Isso é útil quando os dados têm uma relação não linear.",
+        link: "https://www.youtube.com/watch?v=CCCCC"  // Substitua pelo link correto
+    },
+    "KNN": {
+        explicacao: "O KNN (K-Nearest Neighbors) é um algoritmo de aprendizado supervisionado que classifica dados com base na proximidade de dados já rotulados. Para prever a classe de um ponto de dados, o KNN analisa os 'K' pontos de dados mais próximos e atribui a classe que ocorre com mais frequência entre esses vizinhos.",
+        link: "https://www.youtube.com/watch?v=DDDDD"  // Substitua pelo link correto
+    },
+    "Árvore de Decisão": {
+        explicacao: "A Árvore de Decisão é um algoritmo de aprendizado supervisionado utilizado para classificação e regressão. Ele constrói um modelo em forma de árvore, onde cada nó interno representa uma 'pergunta' sobre os dados, e as folhas representam a decisão ou previsão.",
+        link: "https://www.youtube.com/watch?v=EEEEE"  // Substitua pelo link correto
+    },
+    "XGBoost": {
+        explicacao: "O XGBoost é um algoritmo de aprendizado supervisionado baseado no método de Gradient Boosting. Ele é altamente eficiente e eficaz, sendo utilizado para tarefas de classificação e regressão. XGBoost constrói árvores de decisão de forma sequencial, corrigindo os erros cometidos pelas árvores anteriores, o que o torna muito poderoso em competições de aprendizado de máquina.",
+        link: "https://www.youtube.com/watch?v=FFFFF"  // Substitua pelo link correto
+    },
+    "LightGBM": {
+        explicacao: "O LightGBM é uma implementação eficiente de Gradient Boosting que usa uma técnica de 'grafting' (divisão em nível de folhas) para melhorar a velocidade e a eficiência do modelo. Ele é particularmente útil em grandes conjuntos de dados e tem um desempenho muito rápido, com menos uso de memória.",
+        link: "https://www.youtube.com/watch?v=GGGGG"  // Substitua pelo link correto
+    },
+    "CatBoost": {
+        explicacao: "O CatBoost é um algoritmo de aprendizado supervisionado baseado em Gradient Boosting, projetado para lidar com dados categóricos de forma eficiente. Ele automatiza o pré-processamento de variáveis categóricas e oferece excelente desempenho em uma ampla gama de problemas de aprendizado de máquina.",
+        link: "https://www.youtube.com/watch?v=HHHHH"  // Substitua pelo link correto
+    }
+};
 
 
 
@@ -112,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 createParameters(4, parametersColection, datalistOptions);
                 
-                
+                generateinfobox(textClassifier)
 
             }
 
@@ -254,33 +300,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 createParameters(6, parametersColection, datalistOptions);
             }
-            generateinfobox(textClassifier)
         });
 
-    async function generateinfobox(name_algorithm){
+    function generateinfobox(name_algorithm){
         const infoBox = document.getElementById("info-box");
-        try {
-            
-            const resposta = await fetch('../static/json/algoritimos.json');
-            const algoritmos = await resposta.json();
-            const algoritmoEscolhido = name_algorithm;
-            console.log(algoritmos[algoritmoEscolhido])
-            
-
-            const explicacao = algoritmos[algoritmoEscolhido].explicacao;
-            const videoLink = algoritmos[algoritmoEscolhido].link;
-
-            infoBox.style.display = "block";
-            infoBox.innerHTML = `
-                <p>O ${explicacao}</p>
-                <a href="${videoLink}" target="_blank">Caso ainda tenha dúvidas, clique aqui para assistir à videoaula sobre ${name_algorithm}!</a>
-            `;
-
-        } catch (erro) {
-            console.error("Erro ao carregar o arquivo JSON:", erro);
-        }
-        
-        
+        infoBox.style.display = "block";
+        infoBox.innerHTML = `
+            <p>O ${name_algorithm} (K-Nearest Neighbors) é um algoritmo de aprendizado supervisionado que classifica dados com base na proximidade de dados já rotulados.</p>
+            <a href="https://www.youtube.com/watch?v=XXXXX" target="_blank">Caso ainda tenha dúvidas, clique aqui para assistir à videoaula sobre ${name_algorithm}!</a>
+        `;
     }    
 
     function createParameters(size, parametersColection, datalistOptions) {

@@ -16,12 +16,8 @@ const valCheckBox = {
     "LIGHTGBM": ["num_leaves", "objective", "max_depth", "learning_rate", "max_bin", "num_boost_round"],
     "CATBOOST": ["task_type", "iterations", "learning_rate", "depth", "random_state", "eval_metric"]
 }
-
+var infoBox = document.getElementById("info-box");
 let values = Object.keys(valCheckBox);
-
-
-
-
 
 
 function csvToBase64(file, callback) {
@@ -111,8 +107,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 };
 
                 createParameters(4, parametersColection, datalistOptions);
-                
-                
 
             }
 
@@ -254,34 +248,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 createParameters(6, parametersColection, datalistOptions);
             }
-            generateinfobox(textClassifier)
         });
 
-    async function generateinfobox(name_algorithm){
-        const infoBox = document.getElementById("info-box");
-        try {
-            
-            const resposta = await fetch('../static/json/algoritimos.json');
-            const algoritmos = await resposta.json();
-            const algoritmoEscolhido = name_algorithm;
-            console.log(algoritmos[algoritmoEscolhido])
-            
 
-            const explicacao = algoritmos[algoritmoEscolhido].explicacao;
-            const videoLink = algoritmos[algoritmoEscolhido].link;
-
-            infoBox.style.display = "block";
-            infoBox.innerHTML = `
-                <p>O ${explicacao}</p>
-                <a href="${videoLink}" target="_blank">Caso ainda tenha dúvidas, clique aqui para assistir à videoaula sobre ${name_algorithm}!</a>
-            `;
-
-        } catch (erro) {
-            console.error("Erro ao carregar o arquivo JSON:", erro);
-        }
-        
-        
-    }    
 
     function createParameters(size, parametersColection, datalistOptions) {
         const datalists = document.querySelectorAll('datalist');

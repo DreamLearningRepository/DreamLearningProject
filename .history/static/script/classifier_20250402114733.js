@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 createParameters(4, parametersColection, datalistOptions);
                 
-                
+                generateinfobox(textClassifier)
 
             }
 
@@ -254,7 +254,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 createParameters(6, parametersColection, datalistOptions);
             }
-            generateinfobox(textClassifier)
         });
 
     async function generateinfobox(name_algorithm){
@@ -263,9 +262,8 @@ document.addEventListener("DOMContentLoaded", function () {
             
             const resposta = await fetch('../static/json/algoritimos.json');
             const algoritmos = await resposta.json();
+            print(algo)
             const algoritmoEscolhido = name_algorithm;
-            console.log(algoritmos[algoritmoEscolhido])
-            
 
             const explicacao = algoritmos[algoritmoEscolhido].explicacao;
             const videoLink = algoritmos[algoritmoEscolhido].link;

@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             createParameters(4, parametersColection, datalistOptions);
         }
-        generateinfobox(selectedOption)
+        generateinfobox(name_algorithm)
     });
 
     async function generateinfobox(name_algorithm){
