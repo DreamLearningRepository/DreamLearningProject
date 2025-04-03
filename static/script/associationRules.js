@@ -5,7 +5,7 @@ spinner.style.display = 'none';
 let csvFile = null;
 let csvContent = null;
 let separator = ""
-
+mostrarInfoBox();
 
 
 function clearOptionsContainer() {
@@ -168,4 +168,23 @@ function processCSVgraphicAnalysis(csvText) {
     container.appendChild(span);
     container.appendChild(createDropdown("Escolha o identificador", graphOptions));
     container.appendChild(createDropdown("Escolha a coluna que agrupa os itens", graphOptions));
+}
+
+
+function mostrarInfoBox() {
+    const infoBox = document.getElementById("info-box");
+    document.getElementById("close-info-box").addEventListener("click", toggleInfoBox);
+    infoBox.style.display = "block";
+    infoBox.classList.add("show");
+}
+
+function toggleInfoBox() {
+    const infoBox = document.getElementById("info-box");
+    if (infoBox.style.display === "none" || infoBox.style.display === "") {
+        infoBox.style.display = "block";
+        infoBox.classList.add("show");
+    } else {
+        infoBox.style.display = "none";
+        infoBox.classList.remove("show");
+    }
 }

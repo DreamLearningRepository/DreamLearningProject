@@ -82,10 +82,11 @@
 }
 
 #result {
-    max-height: calc(100vh - 200px); /* Ajuste o valor conforme necessário */
-    overflow-y: auto;
+    max-height: none; /* Remove o limite de altura */
+    overflow: visible; /* Permite o crescimento natural */
     margin-top: 3%;
 }
+
 
 footer {
     margin-top: 50px; /* Adiciona margem superior para separar do conteúdo anterior */

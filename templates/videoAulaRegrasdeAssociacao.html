@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleVideo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
+    
+    <title>Regras de Associação</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+        <a class="navbar-brand" href="#">
+          <img src="{{ url_for('static', filename='img/model.png') }}" alt="Logo"> <!-- Adicione o caminho correto para a sua logo -->
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+  
+            <li class="nav-item">
+              <a class="nav-link" href="/Home">Home</a>
+              </li>  
+              <li class="nav-item">
+                  <a class="nav-link" href="/Classificacao">Classificação</a>
+                </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Regressao">Regressão</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Analisegrafica">Análise Gráfica</a>
+            </li>
+
+            <!--<li class="nav-item">
+                      <a class="nav-link" href="/Normalidadeecorrelação">Normalidade e Correlação</a>
+                  </li>-->
+            <li class="nav-item">
+              <a class="nav-link" href="/RegrasAssociacao">Regras de Associação</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link active" href="/VideoAulas">Aulas<span class="sr-only">(current)</span></a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Historico">Histórico</span></a>
+            </li>
+          </ul>
+          <button type="button" class="nes-btn is-primary" onclick="logout()" style="margin-left: auto;">Sair</button>
+        </div>
+      </nav>
+
+
+<div class="scene"> 
+<div class="center">
+    
+    <header>
+        
+
+        <nav>
+            <div class="logo_ul">
+                <!-- <img src="img/logo.png" alt="logo"> -->
+                <ul>
+                    <!--<li>
+                        <a href="/">Home</a>
+                    </li>-->
+                    <li>
+                        <a href="#" id="classificao">Classifição</a>
+                    </li>
+                    <li>
+                        <a href="#" id="regressao">Regressão</a>
+                    </li>
+                    <li>
+                        <a href="#" id="associacao">Regras de associação</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </nav>
+
+        <div class="content">
+            <h1 id="title">Regras de Associação</h1><div class="btns"></div>
+
+        </div>
+        <div class="video-section">
+            <!-- Vídeo do YouTube -->
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VIkOqrvCvAQ?si=_hZB4IryC5aUuLY-" title="YouTube video player"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            </div>
+            <!-- Texto abaixo do vídeo -->
+            <div class="video-description"></div>
+
+        <section>
+            <h2>Populares</h2>
+            <i class="bi bi-chevron-left" style="margin-top: 230px;"></i>
+            <i class="bi bi-chevron-right" style="margin-top: 230px;"></i>
+            <div class="cards">
+                </a>
+        </section>
+
+    
+
+    </header>
+
+   
+</div>
+
+<div id="chatbot-button">
+    <img src="{{ url_for('static', filename='img/chatbot.png') }}" alt="Chatbot">
+</div>
+
+
+<div id="chatbot-container">
+    <div id="chatbot-header">
+        <span>DreamBot</span>
+        <button id="close-chatbot">&times;</button>
+    </div>
+    <div id="chatbot-content">
+        <div class="message bot"><p>Olá sonhador, por favor, marque os conhecimentos que você ainda não possui.</p></div>
+            
+            <div class="checkbox-config">
+                <input type="checkbox" id="polinômio" name="pre-conhecimentos" value="Floresta Aleatória" />
+                <label class="config-label" for="polinômio">O que é regras de associa?</label>
+            </div>
+            
+            <div class="checkbox-config">
+                <input type="checkbox" id="oqé" name="pre-conhecimentos" value="Floresta Aleatória" />
+                <label class="config-label" for="oqé">O que é o algoritimo Apriori?</label>
+            </div>
+
+
+            <div class="checkbox-config">
+                <input type="checkbox" id="erromedio" name="pre-conhecimentos" value="Floresta Aleatória" />
+                <label class="config-label" for="erromedio">Nas regras de associação o que é antecedent support, consequent support, support, confidence, lift, leverage, conviction e zhangs_metric?</label>
+            </div>
+
+    </div>
+    <div id="chatbot-input">
+        <input type="text" id="user-message" placeholder="Digite sua dúvida..." />
+        <button id="send-button">Enviar</button>
+    </div>
+</div>
+
+
+
+</div>
+
+<script src="{{ url_for('static', filename='script/videoAulasplay.js') }}"></script>
+<script src="{{ url_for('static', filename='script/chatbot.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='script/stars.js') }}"></script> 
+</body>
+</html>

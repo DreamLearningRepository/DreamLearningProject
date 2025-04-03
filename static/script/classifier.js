@@ -95,6 +95,10 @@ document.addEventListener("DOMContentLoaded", function () {
             var option = select.children[select.selectedIndex];
             var textClassifier = option.textContent;
 
+            if (textClassifier === "") {
+                toggleInfoBox();
+            }
+
             if (textClassifier === "Random Forest") {
                 parametersColection = {
                     n_estimators: "number",
@@ -271,17 +275,45 @@ document.addEventListener("DOMContentLoaded", function () {
             const videoLink = algoritmos[algoritmoEscolhido].link;
 
             infoBox.style.display = "block";
+            infoBox.classList.add("show");
+
             infoBox.innerHTML = `
-                <p>O ${explicacao}</p>
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="border-0 bg-transparent fs-4 fw-bold" id="close-info-box" aria-label="Close">
+                        &times;
+                    </button>
+                </div>
+                <p>${explicacao}</p>
                 <a href="${videoLink}" target="_blank">Caso ainda tenha dúvidas, clique aqui para assistir à videoaula sobre ${name_algorithm}!</a>
             `;
 
+            
+            mostrarInfoBox();
         } catch (erro) {
             console.error("Erro ao carregar o arquivo JSON:", erro);
         }
         
         
-    }    
+    }
+
+    
+    function mostrarInfoBox() {
+        const infoBox = document.getElementById("info-box");
+        document.getElementById("close-info-box").addEventListener("click", toggleInfoBox);
+        infoBox.style.display = "block";
+        infoBox.classList.add("show");
+    }
+
+    function toggleInfoBox() {
+        const infoBox = document.getElementById("info-box");
+        if (infoBox.style.display === "none" || infoBox.style.display === "") {
+            infoBox.style.display = "block";
+            infoBox.classList.add("show");
+        } else {
+            infoBox.style.display = "none";
+            infoBox.classList.remove("show");
+        }
+    }
 
     function createParameters(size, parametersColection, datalistOptions) {
         const datalists = document.querySelectorAll('datalist');
